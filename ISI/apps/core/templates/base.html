@@ -1,0 +1,44 @@
+<!-DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>E-shop</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+	</head>
+
+	<body>
+		<nav class="navbar">
+			<div class="navbar-brand">
+				<a class="navbar-item" href="/">Shop</a>
+<!--				<a class="navbar-item" href="{% url 'productManager' %}">Product Manager</a>-->
+				<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="main-navbar">
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+				</a>
+			</div>
+
+
+
+        </nav>
+
+		<section class="section">
+			{% block content %}
+            {% endblock %}
+<!--		</section>-->
+<!--		<footer>-->
+<!--			<div>-->
+<!--				<div>-->
+<!--&lt;!&ndash;					<a href="{% url 'contactPage' %}">contact</a>&ndash;&gt;-->
+<!--				</div>-->
+<!--				<div>-->
+<!--&lt;!&ndash;					<a href="{% url 'aboutPage' %}">about</a>&ndash;&gt;-->
+<!--				</div>-->
+<!--			</div>-->
+<!--		</footer>-->
+
+		{% block scripts %}
+		{% endblock %}
+	</body>
+</html>
