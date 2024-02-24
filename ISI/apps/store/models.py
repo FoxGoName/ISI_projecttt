@@ -20,6 +20,7 @@ class Product(models.Model):
       description = models.TextField(blank=True, null=True)
       price = models.FloatField()
       id = models.AutoField(primary_key=True)
+      is_featured = models.BooleanField(default=False)
       date_added = models.DateTimeField(auto_now_add=True)
 
       class Meta:
