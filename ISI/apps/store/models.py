@@ -21,10 +21,9 @@ class Product(models.Model):
       price = models.FloatField()
       id = models.AutoField(primary_key=True)
       is_featured = models.BooleanField(default=False)
-      date_added = models.DateTimeField(auto_now_add=True)
+      
 
-      class Meta:
-        ordering = ('-date_added',)
+      
 
       def __str__(self):
           return self.title
