@@ -7,6 +7,7 @@
                      <span>{{ product.id }}</span>
                      <span>{{ product.title }}</span>
                      <a href="{% url 'editProduct' product.pk %}" class="edit-button">Edit</a>
+                     <a href="{% url 'deleteProduct' product.pk %}" class="edit-button">Delete</a>
                  </div>
                  {% endfor %}
              </div>

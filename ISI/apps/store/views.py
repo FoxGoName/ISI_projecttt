@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from django.urls import reverse
-from django.views.generic import CreateView, UpdateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import CreateView, UpdateView, DeleteView
 
 from .models import Product, Category
 # Create your views here.
@@ -30,9 +30,18 @@ class productCreateView(CreateView):
     fields = '__all__'
 
     def get_success_url(self):
-        return reverse("productManager")
+        return reverse("frontpage")
 
 class editProductView(UpdateView):
     model = Product
     template_name = "edit_product.html"
     fields = '__all__'
+
+    def get_success_url(self):
+        product = self.object  # 获取正在编辑的产品对象
+        return reverse("product_detail", kwargs={'category_slug': product.category.slug, 'slug': product.slug})
+
+class deleteProductView(DeleteView):
+    model = Product
+    template_name = "delete_product.html"
+    success_url = reverse_lazy('frontpage')

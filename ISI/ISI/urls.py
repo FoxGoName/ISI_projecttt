@@ -22,7 +22,8 @@ from apps.store.views import product_detail, category_detail
 
 from apps.core.views import productManagePage
 
-from apps.store.views import productCreateView, editProductView
+from apps.store.views import productCreateView, editProductView, deleteProductView
+
 
 # from apps.store.views import productCreateView, editProductView
 
@@ -35,8 +36,8 @@ urlpatterns = [
     path('productManager/', productManagePage, name="productManager"),
     path('productManager/add/', productCreateView.as_view(), name="addProduct"),
     path('productManager/edit/<int:pk>/', editProductView.as_view(), name='editProduct'),
+    path('productManager/delete/<int:pk>/', deleteProductView.as_view(), name='deleteProduct'),
     path('<slug:slug>/', category_detail, name='category_detail'),
     path('<slug:category_slug>/<slug:slug>/', product_detail, name='product_detail'),
-
 
 ]
