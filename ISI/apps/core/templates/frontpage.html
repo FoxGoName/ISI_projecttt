@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class = "columns is-multiline" >
+   <div class = "columns is-multiline" >
             {% for product in products %}
                 <div class="column is-3">
                    <div class="card">
@@ -13,10 +13,10 @@
                            </div>
                       </div>
                              <footer class="card-footer">
-                                <a href="{% url 'product_detail' product.slug %}" class="cart-footer-item">View product</a>
+                                <a href="{% url 'product_detail' product.category.slug product.slug %}" class="cart-footer-item">View product</a>
                              </footer>
                    </div>
                 </div>
             {% endfor %}
-         </div>
+   </div>
 {% endblock %}
