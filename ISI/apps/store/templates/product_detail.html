@@ -3,8 +3,27 @@
 {% block title %}{{ product.title }} | {% endblock %}
 
 {% block content %}
-<h1>Product Name: {{ product.title }}</h1>
-<h1>Product Price: {{ product.price }}</h1>
-<h1>Product Category: {{ product.category }}</h1>
-<h1>Product Description: {{ product.description }}</h1>
+
+<div id="productapp">
+    <h1>Product Name: {{ product.title }}</h1>
+    <h1>Product Price: {{ product.price }}</h1>
+    <h1>Product Category: {{ product.category }}</h1>
+    <h1>Product Description: {{ product.description }}</h1>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    var productapp = new Vue({
+        el:'#productapp',
+        delimeters: ['[[',']]'],
+        data(){
+           return {
+           }
+        },
+        mounted(){
+            console.log('Mounted');
+        }
+    });
+</script>
 {% endblock %}

@@ -16,27 +16,34 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from apps.cart.views import cart
+from apps.cart.views import cart_detail
 from apps.core.views import frontpage, contact, about
 from apps.store.views import product_detail, category_detail
 
 from apps.core.views import productManagePage
 
 from apps.store.views import productCreateView, editProductView, deleteProductView
-
+from apps.store.api import api_add_to_cart
 
 # from apps.store.views import productCreateView, editProductView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', frontpage, name='frontpage'),
-    path('cart/', cart, name='cart'),
+    path('cart/', cart_detail, name='cart'),
     path('contact/', contact, name='contact'),
     path('about/', about, name='about'),
+
+    #api
+    path('api/add_to_cart', api_add_to_cart, name='api_add_to_cart'),
+
+    #projectManager
     path('productManager/', productManagePage, name="productManager"),
     path('productManager/add/', productCreateView.as_view(), name="addProduct"),
     path('productManager/edit/<int:pk>/', editProductView.as_view(), name='editProduct'),
     path('productManager/delete/<int:pk>/', deleteProductView.as_view(), name='deleteProduct'),
+
+    #store
     path('<slug:slug>/', category_detail, name='category_detail'),
     path('<slug:category_slug>/<slug:slug>/', product_detail, name='product_detail'),
 
