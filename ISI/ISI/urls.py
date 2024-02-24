@@ -20,14 +20,23 @@ from apps.cart.views import cart
 from apps.core.views import frontpage, contact, about
 from apps.store.views import product_detail, category_detail
 
+from apps.core.views import productManagePage
+
+from apps.store.views import productCreateView, editProductView
+
+# from apps.store.views import productCreateView, editProductView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', frontpage, name='frontpage'),
     path('cart/', cart, name='cart'),
     path('contact/', contact, name='contact'),
     path('about/', about, name='about'),
-    path('<slug:category_slug>/<slug:slug>/', product_detail, name='product_detail'),
+    path('productManager/', productManagePage, name="productManager"),
+    path('productManager/add/', productCreateView.as_view(), name="addProduct"),
+    path('productManager/edit/<int:pk>/', editProductView.as_view(), name='editProduct'),
     path('<slug:slug>/', category_detail, name='category_detail'),
-    
-    
+    path('<slug:category_slug>/<slug:slug>/', product_detail, name='product_detail'),
+
+
 ]

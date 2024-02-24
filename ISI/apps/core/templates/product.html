@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+             <a href="{% url 'addProduct' %}" class="edit-button">Add product</a>
+             <div class="product-list">
+                 {% for product in products %}
+                 <div class="product">
+                     <span>{{ product.id }}</span>
+                     <span>{{ product.title }}</span>
+                     <a href="{% url 'editProduct' product.pk %}" class="edit-button">Edit</a>
+                 </div>
+                 {% endfor %}
+             </div>
+         </div>
+{% endblock%}
