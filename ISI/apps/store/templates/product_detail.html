@@ -49,15 +49,6 @@
                     body: JSON.stringify(data)
                 })
                 .then((response) => {
-                    if (result.error) {
-                        console.log('Error 1');
-
-                        throw result;
-                    }
-
-                    return result;
-                })
-                .then((response) => {
                     console.log(response);
                 })
                 .catch(function (error) {
