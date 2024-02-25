@@ -18,20 +18,20 @@
                 <tbody>
                       <tr v-for="product in products">
                           <td>[[ product.title ]]</td>
-                          <td>[[ product.quantity ]]</td>
+                          <td>[[ product.quantity ]] <button @click="incrementQuantity(product.id, product.quantity)">+</button></td>
                           <td>[[ product.total_price ]]</td>
                           <td><button @click="removeFromCart(product.id)">Remove from cart</button></td>
                       </tr>
-                      {% for item in cart %}
+                      {% comment %} {% for item in cart %}
                          {% with product=item.product %}
                             <tr>
                                 <td>{{ product.title }}</td>
-                                <td>{{ item.quantity }}<button @click="incrementQuantity({{ product.id }},{{ item.quantity }})">+</button></td>
+                                <td>{{ item.quantity }}<button @click="incrementQuantity(product.id, product.quantity)">+</button></td>
                                 <td>{{ item.total_price }}</td>
                                 <td><button @click="removeFromCart({{ product.id }})">Remove from cart</button></td>
                             </tr>
                          {% endwith %}
-                      {% endfor %}
+                      {% endfor %} {% endcomment %}
                 </tbody>
             </table>
         </div>
