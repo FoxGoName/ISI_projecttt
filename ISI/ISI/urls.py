@@ -23,7 +23,7 @@ from apps.store.views import product_detail, category_detail
 from apps.core.views import productManagePage
 
 from apps.store.views import productCreateView, editProductView, deleteProductView
-from apps.store.api import api_add_to_cart
+from apps.store.api import api_add_to_cart, api_remove_from_cart
 
 # from apps.store.views import productCreateView, editProductView
 
@@ -36,6 +36,7 @@ urlpatterns = [
 
     #api
     path('api/add_to_cart/', api_add_to_cart, name='api_add_to_cart'),
+    path('api/remove_from_cart/', api_remove_from_cart, name='api_remove_from_cart'),
 
     #projectManager
     path('productManager/', productManagePage, name="productManager"),
