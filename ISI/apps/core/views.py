@@ -3,7 +3,7 @@ from apps.store.models import Product
 
 # Create your views here.
 def frontpage(request):
-    products =  Product.objects.filter(is_featured=True)
+    products =  Product.objects.all()
     context = {
         'products': products
     }
