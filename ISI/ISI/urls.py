@@ -35,7 +35,7 @@ urlpatterns = [
     path('about/', about, name='about'),
 
     #api
-    path('api/add_to_cart', api_add_to_cart, name='api_add_to_cart'),
+    path('api/add_to_cart/', api_add_to_cart, name='api_add_to_cart'),
 
     #projectManager
     path('productManager/', productManagePage, name="productManager"),

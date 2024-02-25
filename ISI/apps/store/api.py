@@ -1,3 +1,4 @@
+import json
 from django.http import JsonResponse
 
 from apps.cart.cart import Cart
@@ -6,10 +7,11 @@ from django.shortcuts import get_object_or_404
 from .models import Product
 
 def api_add_to_cart(request):
+    data = json.loads(request.body)
     jsonresponse = {'success': True}
-    product_id = request.POST.get('product_id')
-    update = request.POST.get('update')
-    quantity = request.POST.get('quantity',1)
+    product_id = data['product_id']
+    update = data['update']
+    quantity = data['quantity']
 
     cart = Cart(request)
 
