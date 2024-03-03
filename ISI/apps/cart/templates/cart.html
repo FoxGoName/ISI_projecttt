@@ -6,6 +6,12 @@
     <div id="cartapp">
         <h1 class="title">Cart</h1>
 
+        {% if not request.user.is_authenticated %}
+            <p><a href="{% url 'frontpage' %}">Continue as guest</a> or <a href="{% url 'login' %}">Log in</a> / <a href="{% url 'signup' %}">Sign up</a>. </p>
+
+            <hr>
+        {% endif %}
+
         {% if cart %}
         <div class="table">
             <table>

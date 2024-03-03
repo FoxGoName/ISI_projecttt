@@ -14,6 +14,8 @@ def cart_detail(request):
         product.id, product.title, product.price, item['quantity'], item['total_price'])
         productsstring = productsstring + b
 
+
+
     context = {
         'cart': cart,
         'productsstring':productsstring

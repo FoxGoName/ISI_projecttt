@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="title">My Account</h1>
+
+    <hr>
+
+    <h2 class="subtitle">Account information</h2>
+
+    <p><strong>Name:</strong>{{ request.user.get_full_name }}</p>
+    <p><strong>E-mail:</strong>{{ request.user.email }}</p>
+    <!--<p><strong>Address:</strong>{{ request.user.address }}</p>-->
+
+    <hr>
+
+    <h2 class="subtitle">My orders</h2>
+{% endblock %}

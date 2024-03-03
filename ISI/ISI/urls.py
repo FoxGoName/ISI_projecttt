@@ -19,6 +19,7 @@ from django.urls import path
 from apps.cart.views import cart_detail
 from apps.core.views import frontpage, contact, about
 from apps.store.views import product_detail, category_detail
+from apps.userprofile.views import signup, myAccount
 
 from apps.core.views import productManagePage
 
@@ -27,6 +28,7 @@ from apps.store.api import api_add_to_cart, api_remove_from_cart
 
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views
 
 # from apps.store.views import productCreateView, editProductView
 
@@ -36,6 +38,12 @@ urlpatterns = [
     path('cart/', cart_detail, name='cart'),
     path('contact/', contact, name='contact'),
     path('about/', about, name='about'),
+
+    #Auth
+    path('myAccount/', myAccount, name='myAccount'),
+    path('signup/', signup, name='signup'),
+    path('login/', views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', views.LogoutView.as_view(), name='logout'),
 
     #api
     path('api/add_to_cart/', api_add_to_cart, name='api_add_to_cart'),
