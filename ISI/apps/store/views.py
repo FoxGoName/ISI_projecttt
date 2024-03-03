@@ -1,3 +1,5 @@
+from tkinter import Image
+from django import forms
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, UpdateView, DeleteView
@@ -24,13 +26,19 @@ def category_detail(request, slug):
 
     return render(request, 'category_detail.html', context)
 
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = '__all__'
 class productCreateView(CreateView):
     model = Product
     template_name = "add_product.html"
-    fields = '__all__'
+    form_class = ProductForm
 
     def get_success_url(self):
         return reverse("frontpage")
+
+
 
 class editProductView(UpdateView):
     model = Product

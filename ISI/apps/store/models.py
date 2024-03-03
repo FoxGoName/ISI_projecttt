@@ -20,6 +20,7 @@ class Product(models.Model):
       description = models.TextField(blank=True, null=True)
       price = models.FloatField()
       id = models.AutoField(primary_key=True)
+      image = models.ImageField(upload_to='product_images/', blank=True, null=True)
       
       
 

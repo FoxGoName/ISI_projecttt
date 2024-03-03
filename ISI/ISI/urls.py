@@ -25,6 +25,9 @@ from apps.core.views import productManagePage
 from apps.store.views import productCreateView, editProductView, deleteProductView
 from apps.store.api import api_add_to_cart, api_remove_from_cart
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 # from apps.store.views import productCreateView, editProductView
 
 urlpatterns = [
@@ -48,4 +51,4 @@ urlpatterns = [
     path('<slug:slug>/', category_detail, name='category_detail'),
     path('<slug:category_slug>/<slug:slug>/', product_detail, name='product_detail'),
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
